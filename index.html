@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AutoWash - Your one-stop solution for pet grooming services.">
+    <meta name="keywords" content="AutoWash, Cat grooming, Pet services, Grooming, Cats, Pet care">
+    <title>AutoWash</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden; /* Hide overflowing content */
+            margin: 20px auto; /* Center the carousel */
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease; /* Smooth transition */
+        }
+
+        .carousel-slide {
+            min-width: 100%; /* Each slide takes full width */
+            display: flex; /* Flexbox for centering */
+            align-items: center; /* Vertical centering */
+            justify-content: center; /* Horizontal centering */
+            position: relative; /* Position for text overlay */
+            height: 400px; /* Set a fixed height for the slides */
+        }
+
+        .carousel-slide img {
+            width: 100%; /* Image covers the whole slide */
+            height: 100%; /* Make image fill the slide height */
+            object-fit: cover; /* Maintain aspect ratio */
+            border-radius: 5px; /* Rounded corners for images */
+        }
+
+        .carousel-text {
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Offset to true center */
+            color: white; /* Text color */
+            padding: 20px; /* Padding around text */
+            text-align: center; /* Center align text */
+            max-width: 80%; /* Set a maximum width for the text box */
+            border: none; /* Ensure there is no border */
+        }
+
+        .carousel-text h2 {
+            font-size: 36px; /* Increase font size */
+            margin-bottom: 10px; /* Add space below the heading */
+        }
+
+        .carousel-text h6 {
+            font-size: 20px; /* Adjust font size */
+            color: red; /* Set text color */
+            margin-bottom: 5px; /* Add space below the heading */
+            text-transform: uppercase; /* Make text uppercase */
+            letter-spacing: 1px; /* Add spacing between letters */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Add a subtle shadow for contrast */
+        }
+
+        /* Button Styles */
+        .carousel-text button {
+            background-color: #007BFF; /* Primary button color */
+            color: white; /* Text color */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px 20px; /* Padding for the button */
+            cursor: pointer; /* Cursor change on hover */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+        }
+
+        .carousel-text button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .carousel-text button:focus {
+            outline: none; /* Remove default focus outline */
+        }
+
+        button.prev, button.next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1000; /* Make sure buttons are above the images */
+        }
+
+        button.prev {
+            left: 10px;
+        }
+
+        button.next {
+            right: 10px;
+        }
+
+        button:hover {
+            background-color: rgba(255, 255, 255, 1); /* Change background on hover */
+        }
+
+        .carousel-slide:not(.active) {
+            display: none; /* Hide inactive slides */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="logo">
+                    <h1><span class="auto">Cats</span><span class="wash">Help</span></h1>
+                </div>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon - Fri, 8:00 - 9:00</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Call Us: +012 345 6789</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email Us: info@example.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./service.html">Service</a></li>
+                    <li><a href="price.html">Price</a></li>
+                    <li><a href="./cat-points.html">Cat Points</a></li>
+                    <li class="dropdown">
+                        <a href="#">Pages <i class="fas fa-caret-down"></i></a>
+                        <ul class="dropdown-content">
+                            <li><a href="./owener.html">owner</a></li>
+                            <li><a href="#">Detail Page</a></li>
+                            <li><a href="#">Team Member</a></li>
+                            <li><a href="#">Schedule</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+                <a href="#" class="appointment-btn">Get Appointment</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <img src="https://c8.alamy.com/comp/2RR7GJB/210328-moscow-march-28-2021-a-cat-is-seen-during-a-cat-show-organized-by-a-cat-fancier-club-at-sokolniki-park-in-moscow-russia-march-28-2021-more-than-400-cats-and-kittens-of-over-30-breeds-are-presented-during-the-fair-photo-by-xinhua-russia-moscow-cat-show-alexanderxzemlianichenkoxjr-publicationxnotxinxchn-2RR7GJB.jpg" alt="A cute cat at a show">
+                <div class="carousel-text">
+                    <h6>Lorem, ipsum.</h6>
+                    <h2>Lorem ipsum&Lorem, ipsum  <br> catning</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <button>More</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://media.istockphoto.com/id/1944476521/photo/portrait-of-a-pretty-blue-merle-australian-shepherd-dog-looking-straigth-at-the-camera-with.webp?a=1&b=1&s=612x612&w=0&k=20&c=yv8OhK6enHkWBfRBttvBB-88-SEDvH8rSk4SsPVyj7Y=" alt="A cute cat with a dog">
+                <div class="carousel-text">
+                    <h6>Lorem, ipsum.</h6>
+                    <h2>Lorem ipsum&Lorem, ipsum  <br> catning</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <button>More</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://media.istockphoto.com/id/2025325214/photo/cat-taking-a-selfie-with-dog.webp?a=1&b=1&s=612x612&w=0&k=20&c=i7r2ZXyG4KEgRtS_bI5co0c026nxdVciyhLV0CGu8TA=" alt="A cat taking a selfie with a dog">
+                <div class="carousel-text">
+                    <h6>Lorem, ipsum.</h6>
+                    <h2>Lorem ipsum&Lorem, ipsum  <br> catning</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <button>More</button>
+                </div>
+            </div>
+        </div>
+        <button class="prev" onclick="changeSlide(-1)" aria-label="Previous Slide">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)" aria-label="Next Slide">&#10095;</button>
+    </section>
+
+    <script>
+        let currentSlide = 0; // Track the current slide
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length; // Total number of slides
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+            slides[index].classList.add('active'); // Show the current slide
+        }
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides; // Calculate new index
+            showSlide(currentSlide); // Show new slide
+        }
+
+        let autoSlideInterval = setInterval(() => {
+            changeSlide(1); // Auto slide every 5 seconds
+        }, 5000);
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            clearInterval(autoSlideInterval); // Stop auto sliding when user clicks
+            changeSlide(-1); // Change slide
+            restartAutoSlide(); // Restart auto slide
+        });
+
+        document.querySelector('.next').addEventListener('click', () => {
+            clearInterval(autoSlideInterval); // Stop auto sliding when user clicks
+            changeSlide(1); // Change slide
+            restartAutoSlide(); // Restart auto slide
+        });
+
+        function restartAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                changeSlide(1); // Restart auto slide
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
